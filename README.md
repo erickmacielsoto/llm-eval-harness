@@ -30,18 +30,18 @@ numbers the default output so that a comparison between two models (or two check
 
 ```mermaid
 flowchart LR
-    DS[(GSM8K test<br/>seeded subset)] --> R[runner]
+    DS[("GSM8K test<br/>seeded subset")] --> R["runner"]
     subgraph Backends
-        HF[HFBackend<br/>transformers, batched greedy]
-        OL[OllamaBackend<br/>HTTP /api/chat]
-        BL[LastNumberBaseline]
+        HF["HFBackend<br/>transformers, batched greedy"]
+        OL["OllamaBackend<br/>HTTP /api/chat"]
+        BL["LastNumberBaseline"]
     end
-    R -->|chat messages| HF & OL & BL
-    HF & OL & BL -->|text, latency, tokens| R
-    R -->|extract + score| J[(per-item JSONL)]
-    J --> S[stats<br/>Wilson · bootstrap · McNemar]
-    S --> MD[report.md]
-    S --> JS[report.json]
+    R -->|"chat messages"| HF & OL & BL
+    HF & OL & BL -->|"text, latency, tokens"| R
+    R -->|"extract + score"| J[("per-item JSONL")]
+    J --> S["stats<br/>Wilson · bootstrap · McNemar"]
+    S --> MD["report.md"]
+    S --> JS["report.json"]
 ```
 
 * `tasks.py` – dataset sampling, prompt, answer extraction and normalisation.
