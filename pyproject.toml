@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-eval-harness"
+version = "0.1.0"
+description = "Small, reproducible harness for evaluating local LLMs with confidence intervals, latency, cost and paired A/B significance tests."
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Erick Maciel Soto" }]
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+hf = ["torch>=2.2", "transformers>=4.45", "accelerate>=0.30"]
+data = ["datasets>=2.18"]
+dev = ["pytest>=8", "mypy>=1.10", "ruff>=0.5"]
+
+[project.scripts]
+evalh = "evalh.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = ["torch.*", "transformers.*", "trl.*", "peft.*", "bitsandbytes.*", "datasets.*", "sentence_transformers.*"]
+follow_imports = "skip"

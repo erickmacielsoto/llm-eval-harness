@@ -1,0 +1,136 @@
+{
+  "summaries": [
+    {
+      "model": "baseline:last-number",
+      "n": 300,
+      "accuracy": 0.02666666666666667,
+      "ci_low": 0.013573069738659564,
+      "ci_high": 0.051728943207005,
+      "parse_failures": 0,
+      "hit_token_limit": null,
+      "latency_p50_s": 3.4000004234258085e-06,
+      "latency_p95_s": 4.899997293250635e-06,
+      "completion_tokens_mean": 0.0,
+      "throughput_tok_s": 0.0,
+      "wall_time_s": 0.0034707000013440847,
+      "gpu_cost_usd": 0.0,
+      "cost_per_1k_correct_usd": 0.0
+    },
+    {
+      "model": "hf:Qwen/Qwen2.5-0.5B-Instruct",
+      "n": 300,
+      "accuracy": 0.37,
+      "ci_low": 0.317331727411966,
+      "ci_high": 0.42595544515761796,
+      "parse_failures": 0,
+      "hit_token_limit": 58,
+      "latency_p50_s": 0.9543737312499161,
+      "latency_p95_s": 0.999008799999956,
+      "completion_tokens_mean": 295.0466666666667,
+      "throughput_tok_s": 311.3780559602452,
+      "wall_time_s": 284.26537550000285,
+      "gpu_cost_usd": 0.01579252086111127,
+      "cost_per_1k_correct_usd": 0.14227496271271414
+    },
+    {
+      "model": "hf:Qwen/Qwen2.5-1.5B-Instruct",
+      "n": 300,
+      "accuracy": 0.66,
+      "ci_low": 0.6046744528574022,
+      "ci_high": 0.7112797962877253,
+      "parse_failures": 0,
+      "hit_token_limit": 42,
+      "latency_p50_s": 1.1058875187500234,
+      "latency_p95_s": 1.7613758562499697,
+      "completion_tokens_mean": 280.8566666666667,
+      "throughput_tok_s": 237.12377602559656,
+      "wall_time_s": 355.3291930999985,
+      "gpu_cost_usd": 0.0197405107277777,
+      "cost_per_1k_correct_usd": 0.0996995491301904
+    },
+    {
+      "model": "ollama:qwen2.5:1.5b",
+      "n": 300,
+      "accuracy": 0.6333333333333333,
+      "ci_low": 0.5774367137328146,
+      "ci_high": 0.6858584938881248,
+      "parse_failures": 0,
+      "hit_token_limit": 50,
+      "latency_p50_s": 1.2313255999997637,
+      "latency_p95_s": 1.6017376150010023,
+      "completion_tokens_mean": 281.7,
+      "throughput_tok_s": 206.30192015877287,
+      "wall_time_s": 409.6423335999971,
+      "gpu_cost_usd": 0.02275790742222206,
+      "cost_per_1k_correct_usd": 0.11977846011695821
+    }
+  ],
+  "comparisons": [
+    {
+      "model_a": "baseline:last-number",
+      "model_b": "hf:Qwen/Qwen2.5-0.5B-Instruct",
+      "accuracy_diff": -0.3433333333333333,
+      "diff_ci_low": -0.4,
+      "diff_ci_high": -0.2866666666666667,
+      "only_a_correct": 3,
+      "only_b_correct": 106,
+      "mcnemar_p": 6.653856846264573e-28,
+      "significant": true
+    },
+    {
+      "model_a": "baseline:last-number",
+      "model_b": "hf:Qwen/Qwen2.5-1.5B-Instruct",
+      "accuracy_diff": -0.6333333333333333,
+      "diff_ci_low": -0.6866666666666666,
+      "diff_ci_high": -0.5766666666666667,
+      "only_a_correct": 0,
+      "only_b_correct": 190,
+      "mcnemar_p": 1.2744735289059618e-57,
+      "significant": true
+    },
+    {
+      "model_a": "baseline:last-number",
+      "model_b": "ollama:qwen2.5:1.5b",
+      "accuracy_diff": -0.6066666666666667,
+      "diff_ci_low": -0.6633333333333333,
+      "diff_ci_high": -0.5466666666666666,
+      "only_a_correct": 3,
+      "only_b_correct": 185,
+      "mcnemar_p": 5.64644281614732e-51,
+      "significant": true
+    },
+    {
+      "model_a": "hf:Qwen/Qwen2.5-0.5B-Instruct",
+      "model_b": "hf:Qwen/Qwen2.5-1.5B-Instruct",
+      "accuracy_diff": -0.29,
+      "diff_ci_low": -0.35333333333333333,
+      "diff_ci_high": -0.22666666666666666,
+      "only_a_correct": 15,
+      "only_b_correct": 102,
+      "mcnemar_p": 4.4392579606968533e-17,
+      "significant": true
+    },
+    {
+      "model_a": "hf:Qwen/Qwen2.5-0.5B-Instruct",
+      "model_b": "ollama:qwen2.5:1.5b",
+      "accuracy_diff": -0.2633333333333333,
+      "diff_ci_low": -0.32674999999999993,
+      "diff_ci_high": -0.19666666666666666,
+      "only_a_correct": 20,
+      "only_b_correct": 99,
+      "mcnemar_p": 9.202543569552252e-14,
+      "significant": true
+    },
+    {
+      "model_a": "hf:Qwen/Qwen2.5-1.5B-Instruct",
+      "model_b": "ollama:qwen2.5:1.5b",
+      "accuracy_diff": 0.02666666666666667,
+      "diff_ci_low": -0.03,
+      "diff_ci_high": 0.08008333333333212,
+      "only_a_correct": 39,
+      "only_b_correct": 31,
+      "mcnemar_p": 0.40296307504607976,
+      "significant": false
+    }
+  ]
+}
